@@ -1,11 +1,13 @@
 import React from 'react';
-import './App.css';
+import { LanguageProvider } from './context/LanguageContext';
+import { LanguageDisplay } from './components/LanguageDisplay';
 
 function App() {
+  
   return (
-    <div className="App">
-      <p>First commit</p>
-    </div>
+    <LanguageProvider>
+      <LanguageDisplay />
+    </LanguageProvider>
   );
 }
 
