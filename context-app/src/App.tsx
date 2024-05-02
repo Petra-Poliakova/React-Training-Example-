@@ -6,7 +6,7 @@ function App() {
   
   return (
     <LanguageProvider>
-      <LanguageDisplay />
+      <LanguageDisplay/>
     </LanguageProvider>
   );
 }

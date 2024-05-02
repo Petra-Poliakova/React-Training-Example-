@@ -9,13 +9,19 @@ export type Language = {
 }
 
 export const LanguageContext = createContext<Language | undefined | null>(null);
+export const LanguageUpdateContext = createContext<((lang: string) => void) | undefined | null>(null);
 
 export const LanguageProvider = ({children}: Props) => {
-  const [language] = useState<Language>({name: 'en'});
+  const [language, setLanguage] = useState<Language>({name: 'en'});
+
+  const toggleLanguage = (lang: string) => { setLanguage({name: lang})}
 
   return (
     <LanguageContext.Provider value={language}>
-      {children}
+      <LanguageUpdateContext.Provider value={toggleLanguage}>
+        {children}
+      </LanguageUpdateContext.Provider>
+      
     </LanguageContext.Provider>
   )
 }
@@ -26,4 +32,12 @@ export const useLanguageContext = () => {
     throw new Error('useLanguageContext must be used within a LanguageProvider')
   }
   return language;
+}
+
+export const useLanguageUpdateContext = () => {
+  const toggleLanguage = useContext(LanguageUpdateContext);
+  if(!toggleLanguage) {
+    throw new Error('useLanguageUpdateContext must be used within a LanguageProvider')
+  }
+  return toggleLanguage;
 }
