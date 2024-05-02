@@ -1,0 +1,1 @@
+Welcome to my React training project! As a developer, I am building my experience with React, and this project serves as a practice space to enhance my skills. The file system of this project offers examples and exercises focused on various concepts in React, such as working with context, reducers, state management and more.
