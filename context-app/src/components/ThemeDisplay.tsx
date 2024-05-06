@@ -14,7 +14,7 @@ export const ThemeDisplay = () => {
   return (
     <>
         <button onClick={themeToggle}>Toggle Theme</button>
-        <div style={themeStyle}>Actual theme is: <strong>{darkTheme === true ? 'dark' : 'light'}</strong></div>
+        <div style={themeStyle}>Actual theme is: <strong>{darkTheme ? 'dark' : 'light'}</strong></div>
     </>
   )
 }
